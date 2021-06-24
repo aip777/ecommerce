@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Tutorial</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id=app>
+    <p v-for="(key,values, index) in user">
+            {{ index}} : {{values}} : {{key}}
+    </p>
+
+    <h1 v-text = "user.name"></h1>
+    <button v-on:click="onClickChange">Click Me</button>
+     
+</div>
+
+<script src='app.js'></script>
+</body>
+</html>
