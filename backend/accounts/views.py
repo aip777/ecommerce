@@ -36,7 +36,7 @@ def register_view(request):
         user.set_password(password)
         user.save()
         messages.success(request, 'User Created Successfully !')
-        return redirect('country-list')
+        return redirect('/')
     
     context = {
         'form': form

@@ -20,5 +20,10 @@ yarn build
 yarn lint
 ```
 
+Add running port django setting CORS_ALLOWED_ORIGINS
+http://192.168.0.104:8080/
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
