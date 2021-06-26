@@ -11,7 +11,7 @@ def login_view(request):
     """
     form = LoginForm(request.POST or None)
     if request.user.is_authenticated:
-        return redirect('/')
+        return redirect('products-list')
     if form.is_valid():
         email = form.cleaned_data.get('email')
         password = form.cleaned_data.get('password')
@@ -47,4 +47,4 @@ def register_view(request):
 def logout_view(request):
     """ User Log out """
     logout(request)
-    return redirect('login')
+    return redirect('/')

@@ -9,7 +9,7 @@ from .models import Order, OrderItem
 
 from django.contrib.auth import get_user_model as user_model
 User = user_model()
-# @login_required()
+@login_required()
 def addOrderView(request):
     if request.method == 'POST':
         form = AddOrderForm(request.POST, request.FILES)
@@ -48,7 +48,7 @@ def addOrderView(request):
     return render(request, 'order/add-order.html', context)
 
 
-# @login_required()
+@login_required()
 def orderlistView(request):
     order = Order.objects.all()
     order_item = OrderItem.objects.all()
@@ -59,7 +59,7 @@ def orderlistView(request):
     }
     return render(request, 'order/order-list.html', context)
 
-# @login_required()
+@login_required()
 def orderUpdateView(request, id):
     order = get_object_or_404(Order, id=id)
     if request.method == 'POST':
@@ -80,7 +80,7 @@ def orderUpdateView(request, id):
     return render(request, 'order/order-update.html', context)
 
 
-# @login_required()
+@login_required()
 def deleteOrderView(request, id):
     order = get_object_or_404(Order, id=id)
     order.delete()
@@ -88,25 +88,4 @@ def deleteOrderView(request, id):
     return redirect('order-list')
 
 
-def orderDetailsView(request, id):
-    order = get_object_or_404(Order, id=id)
-    
-    amount = {}
-    list_li = []
-   
-    for obj in order.products.filter(order = order.id):
-        list_li.append(obj.price)
-    amount[order.id] = sum(list_li)
-    list_li.clear()
-
-    customer = Customer.objects.filter(id = order.customer.id )
-    obj = amount.values()
-    print(obj)
-   
-    print(order) 
-    context = {
-        'customer':customer,
-        'obj':obj,
-        'order': order
-    }
-    return render(request, 'order/order-details.html', context)
+ 

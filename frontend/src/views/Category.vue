@@ -46,7 +46,7 @@ export default {
             const categorySlug = this.$route.params.category_slug
             this.$store.commit('setIsLoading', true)
             axios
-                .get(`/api/v1/products/${categorySlug}`)
+                .get(`/api/products/${categorySlug}`)
                 .then(response => {
                     this.category = response.data
 

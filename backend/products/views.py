@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from .forms import AddCategoryForm,EditCategoryForm, AddProductsForm, EditProductsForm
 from .models import Category, Product
  
-# @login_required()
+@login_required()
 def addCategoryView(request):
     if request.method == 'POST':
         form = AddCategoryForm(request.POST, request.FILES)
@@ -27,7 +27,7 @@ def addCategoryView(request):
     return render(request, 'category/add-category.html', context)
 
 
-# @login_required()
+@login_required()
 def categorylistView(request):
     category = Category.objects.all()
     context = {
@@ -35,7 +35,7 @@ def categorylistView(request):
     }
     return render(request, 'category/category-list.html', context)
 
-# @login_required()
+@login_required()
 def categoryUpdateView(request, id):
     category = get_object_or_404(Category, id=id)
     if request.method == 'POST':
@@ -56,14 +56,14 @@ def categoryUpdateView(request, id):
     return render(request, 'category/category-update.html', context)
 
 
-# @login_required()
+@login_required()
 def deleteCategoryView(request, id):
     category = get_object_or_404(Category, id=id)
     category.delete()
     messages.success(request, 'Successfully deleted')
     return redirect('category-list')
 
-
+@login_required()
 def addProductView(request):
     if request.method == 'POST':
         form = AddProductsForm(request.POST, request.FILES)
@@ -84,7 +84,7 @@ def addProductView(request):
     return render(request, 'products/add-product.html', context)
 
 
-# @login_required()
+@login_required()
 def productslistView(request):
     products = Product.objects.all()
     context = {
@@ -92,7 +92,7 @@ def productslistView(request):
     }
     return render(request, 'products/products-list.html', context)
 
-# @login_required()
+@login_required()
 def productsUpdateView(request, id):
     products = get_object_or_404(Product, id=id)
     if request.method == 'POST':
@@ -113,7 +113,7 @@ def productsUpdateView(request, id):
     return render(request, 'products/product-update.html', context)
 
 
-# @login_required()
+@login_required()
 def deleteProductView(request, id):
     products = get_object_or_404(Product, id=id)
     products.delete()

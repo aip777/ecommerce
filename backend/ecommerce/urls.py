@@ -10,7 +10,7 @@ urlpatterns = [
     path('', include('orders.urls')),
     path('api/v1/', include('djoser.urls')),
     path('api/v1/', include('djoser.urls.authtoken')),
-    path('api/v1/products/', include('products.api.urls')),
+    path('api/products/', include('products.api.urls')),
     path('api/v1/orders/', include('orders.api.urls')),
 ]
 if settings.DEBUG:

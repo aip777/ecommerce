@@ -48,7 +48,7 @@ export default {
             const category_slug = this.$route.params.category_slug
             const product_slug = this.$route.params.product_slug
 
-            await axios.get(`/api/v1/products/${category_slug}/${product_slug}`)
+            await axios.get(`/api/products/${category_slug}/${product_slug}`)
             .then(response => {
                 this.product = response.data
                 document.title = this.product.name + ' | Ecommerce Store'
