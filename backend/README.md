@@ -12,6 +12,9 @@
     python manage.py migrate
     python manage.py runserver
 
+    Add running port django setting CORS_ALLOWED_ORIGINS
+    http://192.168.0.104:8080/
+
 
 ### Admin
     Products List
