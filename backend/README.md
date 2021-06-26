@@ -15,6 +15,10 @@
     Add running port django setting CORS_ALLOWED_ORIGINS
     http://192.168.0.104:8080/
 
+### Login credentials
+    email: admin@admin.com
+    password: admin123123
+
 
 ### Admin
     Products List
