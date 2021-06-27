@@ -46,7 +46,7 @@ export default {
             this.$store.commit('setIsLoading', true) // push to vuex
 
             await axios
-                    .post('/api/v1/products/search/', {
+                    .post('/api/products/search/', {
                         'query': this.query
                     })
                     .then( response => {
